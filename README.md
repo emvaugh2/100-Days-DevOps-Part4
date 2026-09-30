@@ -12,7 +12,18 @@ Greetings! Welcome back. We'll stick with this formatting right now for our chal
 ## Day 36: Deploy Nginx Container on Application Server
 ## Day 35: Install Docker Packages and Start Docker Service
 
+Alright I'm going to go above and beyond and knock this lab out really quickly. I'm very familiar with Docker at this point. I've also used podman for the RHCSA exam so I know my way around the block a little bit. 
 
+For this lab, we need to install docker-ce and docker compose. Then we need to start the docker service. Like with all services, I'll use some variation of `systemctl enable --now docker`. We already know how to install packages using dnf. Lets do that and see what results we get. 
+
+UPDATE: I didnt get anything when I tried to download `docker-ce`. I asked AI where to find this package. I had to do a few different downloads. Here were the commands
+- sudo dnf install -y dnf-plugins-core
+- sudo dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+- sudo dnf install -y docker-ce docker-ce-cli containerd.io
+
+Then I just started and enabled docker. The docker compose package was automatically installed with the third command. Alright the dnf-plugins-core install allowed us to use the config-manager command. I'm actually just used to these commands already being built into the labs that I'm using. What does the config-manager do? Well in this case, it allowed us to add another repo to our default repos in CentOS. In Linux, you can create and add your own repos whenever you want. There's literally a file you can edit to do this. config-manager basically just does it for you. So we downloaded the Docker repo. My thing is, I didn't know you could add repos to these labs. I tried to do that recently and it didn't work. 
+
+Docker CE - Docker community edition. This is the actual docker engine. To actually use this engine, you need the CLI associated with it, hence docker-ce-cli. Containerd is the worker and docker is the manager. Containerd talks to the kernel to manage the containers. It's the containers runtime. 
 
 ## Day 34: Git Hook
 
