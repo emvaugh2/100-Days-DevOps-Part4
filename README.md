@@ -12,9 +12,16 @@ Greetings! Welcome back. We'll stick with this formatting right now for our chal
 ## Day 36: Deploy Nginx Container on Application Server
 ## Day 35: Install Docker Packages and Start Docker Service
 ## Day 34: Git Hook
+
+Our final Git task! Lets get this handled. 
+
 ## Day 33: Resolve Git Merge Conflicts
 
-I'll finish this up tomorrow. 
+Okay so the title is self explanatory. You can have two developers working on the same file and do a commit. Obviously this would cause some conflicts so we need to learn how to correct this in order to keep that application running. Alright for the lab, we first need to log into the storage server `ststor01` as the user max. They want us to push the changes from the story-blog repo to the origin repo which is `/sarah/story-blog.git`. I fixed the typo as requested using vi. I did a git add, commit, and push. I ran into an error message at this point. It's telling me to do a git pull before pushing again. I ran the pull request but I encountered a merge conflict. Once I cat'd the file again, I saw the `<<<<< HEAD` and `=====` lines in the file. So apparently everything below the HEAD line and above the === line is our local version. I went ahead and removed the lines Git added and made sure the file looked exactly how the lab wanted it to (4 story titles and the typo fixed). I then did add, commit, and push again. No error messages. I hit submit and everything worked perfectly. 
+
+I'm going to ask AI to explain the file change markers for me though because I didn't understand that fully. 
+
+UPDATE: Still a bit confusing but I think I need to see this in a few different contexts. I can at least see that there's a change in the file so that's good enough for me right now. 
 
 ## Day 32: Git Rebase
 
