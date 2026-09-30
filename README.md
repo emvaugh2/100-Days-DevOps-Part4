@@ -11,9 +11,24 @@ Greetings! Welcome back. We'll stick with this formatting right now for our chal
 ## Day 37: Copy File to Docker Container
 ## Day 36: Deploy Nginx Container on Application Server
 ## Day 35: Install Docker Packages and Start Docker Service
+
+
+
 ## Day 34: Git Hook
 
-Our final Git task! Lets get this handled. 
+Our final Git task! Lets get this handled. So this is similar to a regular hook. A hook is basically when an event happens, it automatically triggers some type of job to run. So there are pre-commit and pre-push hooks for example. The pre-commit says before a commit happens, Git triggers a script. Same with push. This is mainly for automation. 
+
+In the lab, we need to make a git hook called `post-update` so that whenever any changes are pushed to the master branch, it creates a release tag with name release-YYYY-MM-DD. I don't even know what a release tag is in the context of git. I also just used the man pages for git-hook and the examples are not clear. So I'm going to google this. 
+
+I was told to run `git init` and create your file. The hooks are typically stored in /.git/hooks. I didn't know that. I'm seeing a bunch of files here already named pre-merge, post-update, pre-rebase, etc. So there's already a post-update.sample file. I'm going to go here and...well I cat'd the file. It says to enable this hook, rename this file to "post-update". So apparently I need to write a Bash script for this. Gotta love it. I think I'll just do a `echo "release-" and date +%F. I also don't know wha ta release tag is exactly so I'm going to lean on AI for my understanding of this moving forward. 
+
+UPDATE: Apparently git tag is a whole different topic. So the hook needs to generate the tag name and then the git tag should be created. I also need to create the hook in the actual remote repo directories, not the local one. I changed directories over to there, fixed the file name, and made a script with `git tag release-$(date +%F)`. I kept the `exec git update-server-info` line in there as well. I also had to make the file executable using `chmod +x post-update`. Now lets test it out. You actually have to switch back to the remote repo directory to see the tag. I used the command `git --git-dir=/opt/games.git tag` to check. 
+
+All of that worked! So the workflow is create the hook in the remote repo, push the changes in the local repo, check for the tags in the remote repo. 
+
+NOW WE'RE DONE WITH GIT. HOW NICE. I'll review these labs and do them occassionally to keep my Git skips up to par. I have some Anki cards for review so that will help in the meantime. 
+
+
 
 ## Day 33: Resolve Git Merge Conflicts
 
