@@ -13,6 +13,9 @@ Greetings! Welcome back. We'll stick with this formatting right now for our chal
 ## Day 35: Install Docker Packages and Start Docker Service
 ## Day 34: Git Hook
 ## Day 33: Resolve Git Merge Conflicts
+
+I'll finish this up tomorrow. 
+
 ## Day 32: Git Rebase
 
 The catch up is almost over! So what is git rebase? Conceptually, git rebase takes your branch's commits and replays them on top of a newer base commit. Say you have a master branch that has commits A, B, and C. You can have a feature branch from the master branch that has A, B, and C as well. You can do commits D and E on the feature branch but say someone is working on the master branch and they do commits F, G, and H. If you do a rebase on your feature branch, Git will move your changes to after H. So the master branch will have A, B, C, F, G, H, D and E. This is to make sure the history looks clean. Think of it as a timeline. The master branch will see commits 1, 2, 3, 6, 7 and 8 in order although 4 and 5 came before the other ones but they were on another branch. So instead of trying to merge them based on their timeless, rebase just sticks those commits 4 and 5 at the end of the master branch's commits. 
