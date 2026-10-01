@@ -9,7 +9,7 @@ Greetings! Welcome back. We'll stick with this formatting right now for our chal
 ## Day 39: Create a Docker Image From Container
 ## Day 38: Pull Docker Image
 
-
+Okay this will be the last one for the day. I'm sure I'll slow this down once I get to K8s. OKAY, we need to just pull the busybox:musl image and tag and then retag it as busybox:news. So we can do `docker image pull` and then give it a new name in here. I believe that's how that works. As far as giving the image a new tag, a quick google search told me that the syntax is `docker tag source_image:old_tag target_image:new_tag`. Lets see if it worked. Okay, got the green check! We're good. 
 
 ## Day 37: Copy File to Docker Container
 
