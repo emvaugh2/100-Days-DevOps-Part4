@@ -9,7 +9,15 @@ Greetings! Welcome back. We'll stick with this formatting right now for our chal
 ## Day 39: Create a Docker Image From Container
 ## Day 38: Pull Docker Image
 ## Day 37: Copy File to Docker Container
+
+
+
 ## Day 36: Deploy Nginx Container on Application Server
+
+For this lab, we need to create an NGINX container on application server 1 (stapp01). I think I'll just use `docker run -d`. The full command is `docker run -d --name nginx_w nginx:alpine`. The image is nginx and the tag is alpine. Our custom name we gave our container is nginx_1. You can make sure the container is running using the `docker ps` command. 
+
+That's all for that lab!
+
 ## Day 35: Install Docker Packages and Start Docker Service
 
 Alright I'm going to go above and beyond and knock this lab out really quickly. I'm very familiar with Docker at this point. I've also used podman for the RHCSA exam so I know my way around the block a little bit. 
