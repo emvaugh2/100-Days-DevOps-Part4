@@ -8,9 +8,16 @@ Greetings! Welcome back. We'll stick with this formatting right now for our chal
 ## Day 40: Docker EXEC Operations
 ## Day 39: Create a Docker Image From Container
 ## Day 38: Pull Docker Image
+
+
+
 ## Day 37: Copy File to Docker Container
 
+We're running an Ubuntu container. We need to copy a file from our host machine into the container. I've actually never done this on a running container. Usually I set the bind mount up before I start the container. Let me google how to do this. 
 
+UPDATE: So it's pretty much the same as the regular copy command just you put docker in front of it. The syntax is `docker cp <file_source_path> container_name:<file_destination_path>`. So I had to run `docker cp /tmp/nautilus.txt.gpg ubuntu_latest:/tmp/`. I logged into the container using `docker exec -it ubuntu:latest bash` to log into the container and I checked the file path to make sure the file was there. 
+
+That completes this lab! Another easy one although I did learn something new. 
 
 ## Day 36: Deploy Nginx Container on Application Server
 
