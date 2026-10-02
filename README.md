@@ -6,7 +6,19 @@ Greetings! Welcome back. We'll stick with this formatting right now for our chal
 
 
 ## Day 40: Docker EXEC Operations
+
+Lets wrap up this 10 day span of labs by working on EXEC operations. When I think exec, I think about logging into the container directly like you'd do any remote Linux box. Usually containers are pretty lightweight so you can't do much but you can still do basic tasks. In this lab, we need to install apache2 on the running container. Then, we need to configure it to listen on port 3003. We need to make sure Apache is up and running inside the container. 
+
+Lets run `docker exec -it <container_name> bash` to log into the container. The -it flag stands for interactive I think which allows us to log into the container. We'll run `apt-get install apache2 -y` to get that on the container. I'm going to find the .conf file and change the listening port to 3003. It's usually somewhere in /etc which I ended up finding some files in /etc/apache2. I'll see which file has the listener on it. I needed to install vim first. I actually foudn a port.conf file that says which ports it can listen on. I'm just going to change this and ask AI if this is the right file.
+
 ## Day 39: Create a Docker Image From Container
+
+Welcome back! So for this lab, we'll be creating a container image from an Ubuntu container. Now, this is the reverse of what I'm used to. Usually you create the container from the image. So I'm going to google how to do the reverse. So a website told me the syntax is `docker commit <container> <new-image-name>` so lets try that. In our case, it will be `docker commit ubuntu_latest ecommerce:nautilus`. Lets run a docker ps to make sure the container is running and we have the appropriate name of the container. Okay everything matches. Going to run my command. The command went through so I'll run docker images to verify the immage was created. I see the image there so I'll submit my lab. Got the green check! That was quick and easy. Lets knock out another lab. Okay I'm trying to start up the service but the container doesn't even recognize systemctl. I guess I had to install the package `systemd` for that. Running into another issue for using systemctl. It's saying it can't operate. 
+
+UPDATE: Okay so apparently there are a list of `apache2ctl` commands to troubleshoot this. I had no idea. So runnning `apache2ctl -S` shows me that the host is still listening on port 80. From that same output, it says it's getting this information from `/etc/apache2/sites-enabled/000-default.conf`. I went into that file and changed that port to 3003. Then I restarted Apache2 using `service apache2 restart`. Now the output shows port 3003. Okay cool. It also looks like the servie is up and running so I'll go ahead and submit my lab. Well, I also asked AI what's a good verification. It said curl. Duh. Okay after doing a curl test on localhost on that port, I got an HTTP 200 OK message. I think we're good. 
+
+Got the green check! Lets move onto Days 41 - 50. 
+
 ## Day 38: Pull Docker Image
 
 Okay this will be the last one for the day. I'm sure I'll slow this down once I get to K8s. OKAY, we need to just pull the busybox:musl image and tag and then retag it as busybox:news. So we can do `docker image pull` and then give it a new name in here. I believe that's how that works. As far as giving the image a new tag, a quick google search told me that the syntax is `docker tag source_image:old_tag target_image:new_tag`. Lets see if it worked. Okay, got the green check! We're good. 
